@@ -1,0 +1,17 @@
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Layout/SpaceAfterComma:
+  Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
