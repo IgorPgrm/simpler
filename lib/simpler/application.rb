@@ -32,7 +32,7 @@ module Simpler
     private
 
     def require_app
-      Dir["#{Simpler.root}/app/**/*.rb"].each { |file| require file}
+      Dir["#{Simpler.root}/app/**/*.rb"].each { |file| require file }
     end
 
     def require_routes
