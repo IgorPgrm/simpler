@@ -7,7 +7,8 @@ module Simpler
 
     def make_response(action)
       [
-        200, { 'Content-Type' => 'text/plain', 'X-Simpler-Action' => action },
+        200, { 'Content-Type' => 'text/plain', 'X-Simpler-Action' => action,
+               'X-Simpler-Controller' => self.class.name },
         ['Simple framework in action!']
       ]
     end
