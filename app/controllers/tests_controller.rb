@@ -1,11 +1,11 @@
 class TestsController < Simpler::Controller
 
   def index
-    # render 'tests/list'
+    # render plain: 'Plain text'
     @tests = Test.all
   end
 
-  def create
+  def create; end
 
-  end
+  def show; end
 end
