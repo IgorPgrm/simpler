@@ -25,6 +25,8 @@ module Simpler
 
     def call(env)
       route = @router.route_for(env)
+      return page_not_found if route.nil?
+
       controller = route.controller.new(env)
       action = route.action
 
@@ -36,6 +38,10 @@ module Simpler
     end
 
     private
+
+    def page_not_found
+      [404, { 'Content-Type' => 'text/plain' }, ['404 Page not found']]
+    end
 
     def setup_database
       database_config = YAML.load_file(Simpler.root.join('config/database.yml'))
