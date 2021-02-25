@@ -3,16 +3,20 @@ require_relative 'view'
 module Simpler
   class Controller
     attr_reader :name
+    attr_accessor :params
 
     def initialize(env)
+      @params = {}
       @name = extract_name
       @request = Rack::Request.new(env)
       @response = Rack::Response.new
+      @params = @request.params
     end
 
     def make_response(action)
       @request.env['simpler.controller'] = self
       @request.env['simpler.action'] = action
+      @request.params.merge!(@request.env['simpler.params'])
       set_default_headers
       send(action)
       write_response
