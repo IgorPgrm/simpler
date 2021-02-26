@@ -41,7 +41,7 @@ module Simpler
     private
 
     def page_not_found
-      [404, { 'Content-Type' => 'text/plain' }, ['404 Page not found']]
+      Rack::Response.new(['404 Page not found'], 404, { 'Content-Type' => 'text/plain' }).finish
     end
 
     def setup_database

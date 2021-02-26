@@ -6,7 +6,6 @@ module Simpler
     attr_accessor :params
 
     def initialize(env)
-      @params = {}
       @name = extract_name
       @request = Rack::Request.new(env)
       @response = Rack::Response.new
